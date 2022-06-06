@@ -1,0 +1,49 @@
+#dropdownMenuButton {
+    cursor: pointer;
+    padding:20px;
+    margin-top:20px;
+}
+.dropdown {
+    position: absolute;
+    display: inline-block;
+    left: 0;
+    top:0;
+}
+.dropdown-menu {
+    display: none;
+    background-color: black;
+    min-width: 200px;
+}
+.dropdown-menu a {
+    color: white;
+    padding: 20px;
+    text-decoration: none;
+    display: block;
+}
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+#container{
+    background-image:url(tabs.jpg);
+    height: 600px;
+    width: 714px;
+    color:red;
+    position:relative;
+    text-align: center;
+}
+#btnUsers{
+    position: absolute;
+    right: 20%;
+}
+#btnShoes{
+    position: absolute;
+    left: 20%;
+}
+
+#btnContainer{
+    position: absolute;
+    top: 77%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) ;
+}

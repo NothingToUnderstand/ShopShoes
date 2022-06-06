@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" >
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <meta charset="UTF-8">
+    <title>Create</title>
+</head>
+<body>
+    <h1>Shoes</h1>
+
+    <h3>Create</h3>
+
+<div class="container" style="background-color: antiquewhite;">
+<form name="create" method="POST"  modelAttribute="shoes" th:action="@{/shoes/create}">
+    <div class="form-floating mb-3">
+        <input type="text"name="name" placeholder="Name">
+       </div>
+       <div class="form-floating mb-3">
+       <input type="number" name="weightKg" placeholder="weightKg">
+      </div>
+      <div class="form-floating mb-3">
+          <input type="number" name="quantity" placeholder="quantity">
+      
+      <div class="form-floating mb-3">
+        <select size="1" name="color" placeholder="Color">
+            <option selected value="black">Black</option>
+            <option value="white">White</option>
+            <option value="red">Red</option>
+            <option value="pink">Pink</option>
+            <option value="green">Green</option>
+        </select>
+    </div>
+
+    <button value="save" class="btn btn-success btn-md" type="submit">Save</button>
+</form>
+<a th:href="@{/shoes}" class="btn btn-primary btn-md">Shoes</a>
+</div>
+
+</body>
+</html>

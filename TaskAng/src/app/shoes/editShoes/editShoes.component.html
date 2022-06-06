@@ -1,0 +1,39 @@
+<app-shoesNav></app-shoesNav>
+<div class="row mt-3">
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">Create shoes</h5>
+        <form (ngSubmit)="onSubmit()" class="row" name="create">
+            <div class="col-12">
+                <label for="name" class="form-label">Name:{{shoes.name}}</label>
+                <input type="text" class="form-control" [(ngModel)]="shoes.name" name="name">
+            </div>
+  
+            <div class="col-4">
+                <label for="weightKg" class="form-label">WeightKg:{{shoes.weightKg}}</label>
+                <input type="number" class="form-control" [(ngModel)]="shoes.weightKg" name="weightKg">
+            </div>
+  
+            <div class="col-4">
+                <label for="color" class="form-label">Color:{{shoes.color}}</label>
+                <select class="form-select" aria-label="Default select example" [(ngModel)]="shoes.color" name="color">
+                    <option selected value="black">Black</option>
+                    <option value="white">White</option>
+                    <option value="red">Red</option>
+                    <option value="pink">Pink</option>
+                    <option value="green">Green</option>
+                </select>
+            </div>
+  
+            <div class="col-4">
+                <label for="quantity" class="form-label">Quantity:{{shoes.quantity}}</label>
+                <input type="number" class="form-control" [(ngModel)]="shoes.quantity" name="quantity">
+            </div>
+  
+            <div class="col-12">
+                <button class="btn btn-warning mt-3" type="submit"  name="editButton" >Edit</button>
+            </div>
+        </form>
+        </div>
+    </div>
+  </div>

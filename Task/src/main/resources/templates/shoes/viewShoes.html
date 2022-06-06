@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>View</title>
+</head>
+<body>
+    <h1>Shoes</h1>
+
+    <h3>View</h3>
+
+<div class="container" >
+
+    <ul class="list-group list-group-flush" th:each="shoes :${shoes}" >
+        <li class="list-group-item" th:text="@{'ID:'+${shoes.id}}">ID:</li>
+        <li class="list-group-item" th:text="@{'Name:'+${shoes.name}}">Name:</li>
+        <li class="list-group-item" th:text="@{'Weight_KG:'+${shoes.weightKg}}">Weight_KG:</li>
+        <li class="list-group-item" th:text="@{'Color:'+${shoes.color}}">Color:</li>
+        <li class="list-group-item" th:text="@{'Quantity:'+${shoes.quantity}}">Quantity:</li>
+    </ul>
+
+<div class="row">
+<a  th:href="@{/shoes/edit/{id}(id=${shoes.getId()})}" class="btn btn-warning btn-md">Edit</a>
+<a th:href="@{/shoes}" class="btn btn-primary btn-md">shoes</a>
+</div>
+</div>
+</body>
+</html>

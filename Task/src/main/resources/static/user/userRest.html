@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Users Page</title>
+    <link rel="stylesheet" href="usersRest.css">
+</head>
+<body>
+
+    <header>
+            <h1>User Application</h1>
+    </header>  
+    <button  id="accbtn" >Account</button>
+</br>
+    <button  id="createUser" >New</button>
+</br>
+    <button  id="searchUser" >Search</button>           
+<!-- createForm -->
+            <form id="createUserForm"  name="create">
+                    <h5>Create user</h5>
+                <label for="username">UserName:</label>
+                    <input type="text"  id="username" name="username">
+                
+                    <label for="email" >Email:</label>
+                    <input type="email" id="email" name="email">
+             
+               
+                    <label for="Password" >Password:</label>
+                    <input type="password" id="password" name="password">
+               
+                    <button type="submit" name="saveButton" class="saveButton">Save</button>
+               
+            </form>
+           <!-- Editform  -->
+            <form id="editUserForm"  name="edit">
+                <h5>Edit user</h5>
+            <label for="usernameEdit">UserName:</label>
+                <textarea type="text" value=""  id="usernameEdit" name="username"></textarea>
+            
+                <label for="emailEdit" >Email:</label>
+                <textarea type="email" id="emailEdit"  name="email"></textarea>
+                
+
+                <button type="submit" name="editButton" class="editButton">Edit</button>
+           
+        </form>
+               <!-- SearchForm -->
+                <form id="searchUserForm"  name="search">
+                     <h5 >Search User</h5>
+                        <label for="username" >UserName:</label>
+                        <input type="text"  id="usernameSearch" name="username">
+                        <button  type="submit" name="searchButton">Search</button>
+                </form>
+           <!-- All Users -->
+                <h5>All Users</h5>
+                <table id="users" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>UserName</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+                <!-- Account -->
+                <form id="acc"  name="acc">
+                    <h2>Hello my dear guest</h2>
+                    <label for="ID" >ID:</label>
+                    <b  id="idAcc" name="idAcc"></b>
+                </br>
+                    <label for="username">UserName:</label>
+                    <b  id="usernameAcc" name="usernameAcc"></b>
+                </br>            
+                    <label for="email" >Email:</label>
+                    <b  id="emailAcc" name="emailAcc"></b>
+                </br>
+                    <label for="Password" >Password:</label>
+                    <b  id="passwordAcc" name="password"></b>
+                </br> 
+                    <label for="Role" >Role:</label>
+                    <b  id="roleAcc" name="roleAcc"></b>
+            </form>
+              
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="usersRest.js" type="text/javascript"></script>
+</body>
+</html>

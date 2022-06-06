@@ -1,0 +1,16 @@
+.container{
+    background-image: url("https://www.meme-arsenal.com/memes/0a446acd79adf103cea96451b0b1fbff.jpg");
+    background-repeat: no-repeat;
+    height: 424px;
+    position:relative;
+}
+#btnShoes{
+    position: absolute;
+    left: 8%;
+    top:28%;
+}
+#btnUsers{
+    position: absolute;
+    left: 18%;
+    top:23%;
+}

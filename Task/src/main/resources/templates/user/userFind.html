@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Find</title>
+</head>
+
+<body>
+<h1>Users</h1>
+
+<h3>Find</h3>
+
+    <div class="container" style="background-color:plum">
+    <form th:object="${users}" th:method="post">
+
+        <div class="form-floating mb-3">
+        <input type="text" name="username">
+        <input type="submit" value="Search">
+        </div>
+        <div th:method="GET" th:each="user :${users}">
+            <div class="row">
+                <a class="btn btn-outline-success btn-lg btn-block" th:href="@{/users/view/{id}(id=${users.getId()})}"
+                    th:text="'Name:    '+${users.getUsername + ', ' +'email:    '+ users.getEmail + ','+'role:   '+users.getRoles} ">users
+                </a>
+            </div>
+        </div>
+</div>
+    </form>
+</body>
+
+</html>

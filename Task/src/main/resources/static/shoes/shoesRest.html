@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Shoes Page</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+          crossorigin="anonymous">
+</head>
+<body>
+<div class="container"  >
+    <header>
+        <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="me-2" viewBox="0 0 118 94" role="img">
+                    <title>ShoesApplication</title>
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z" fill="currentColor"></path></svg>
+                <span class="fs-4">Shoes Application</span>
+            </a>
+
+           <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+               <div>
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" value="Sign Out"/>
+                </form>
+               </div>
+               <!-- <a class="me-3 py-2 text-dark text-decoration-none" href="#">1</a> -->
+<!--                <a class="me-3 py-2 text-dark text-decoration-none" href="#">2</a>-->
+<!--                <a class="me-3 py-2 text-dark text-decoration-none" href="#">3</a>-->
+<!--                <a class="py-2 text-dark text-decoration-none" href="#">4</a>-->
+           </nav>
+        
+        </div>
+
+        <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+            <h1 class="display-4 fw-normal">Shoes Application</h1>
+            <p class="fs-5 text-muted">Best shoes ever</p>
+        </div>
+    </header>
+    <div class="row mt-3">
+        <div class="card">
+<!--            <div class="card-header">-->
+<!--                Some Header-->
+<!--            </div>-->
+            <div class="card-body">
+                <h5 class="card-title">Create shoes</h5>
+            <form id="createShoesForm" class="row" name="create">
+                <div class="col-12">
+                    <label for="name" class="form-label">Name:</label>
+                    <input type="text" class="form-control" id="name" name="name">
+                </div>
+
+                <div class="col-4">
+                    <label for="weightKg" class="form-label">WeightKg:</label>
+                    <input type="number" class="form-control" id="weightKg" name="weightKg">
+                </div>
+
+                <div class="col-4">
+                    <label for="color" class="form-label">Color:</label>
+                    <select class="form-select" aria-label="Default select example" id="color" name="color">
+                        <option selected value="black">Black</option>
+                        <option value="white">White</option>
+                        <option value="red">Red</option>
+                        <option value="pink">Pink</option>
+                        <option value="green">Green</option>
+                    </select>
+                </div>
+
+                <div class="col-4">
+                    <label for="quantity" class="form-label">Quantity:</label>
+                    <input type="number" class="form-control" id="quantity" name="quantity">
+                </div>
+
+                <div class="col-12">
+                    <button class="btn btn-primary mt-3" type="submit" name="saveButton">Save</button>
+                </div>
+            </form>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="card">
+            <!--            <div class="card-header">-->
+            <!--                Some Header-->
+            <!--            </div>-->
+            <div class="card-body">
+                <h5 class="card-title">Search shoes</h5>
+                <form id="searchShoesForm" class="row" name="search">
+                    <div class="col-12">
+                        <label for="name" class="form-label">Name:</label>
+                        <input type="text" class="form-control" id="nameSearch" name="name">
+                    </div>
+                    <div class="col-12">
+                        <button class="btn btn-primary mt-3" type="submit" name="searchButton">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row mt-3 mb-5">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">All Shoes</h5>
+                <table id="shoes" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>WeightKg</th>
+                            <th>Color</th>
+                            <th>Quantity</th>
+<!--                            <td>-->
+<!--                                <button type="submit" class="btnRemove" title="Remove" attr="data-id=${shoes.getId()}"> R </button>-->
+<!--                            </td>-->
+
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                    <!--
+                    <tbody>
+                    <th:block th:each="shoes: ${listShoes}">
+                        <tr class="view">
+                            <th>ID</th>
+                            <td><strong th:text="${shoes.getId()}"></strong></td>
+
+                            <th>Name</th>
+                            <td><strong th:text="${shoes.getName()}"></strong> </td>
+
+                            <th>Weight</th>
+                            <td> <strong th:text="${shoes.getWeightKg()}"></strong></td>
+
+                            <th>Color</th>
+                            <td><strong th:text="${shoes.getColor()}"></strong></td>
+
+                            <th>Quantity</th>
+                            <td><strong th:text="${shoes.getQuantity()}"></strong></td>
+                            <th></th>
+                            <td>
+                                <button class="btnRemove" title="Remove" th:attr="data-id=${shoes.getId()}"> R </button>
+                            </td>
+                        </tr>
+                        <tr class="edit">
+                            <form th:object="${shoes}">
+                                <th>ID</th>
+                                <td><input type="text" th:field="*{id}"></td>
+
+                                <th>Name</th>
+                                <td><input type="text" th:field="*{name}"> </td>
+
+                                <th>Weight</th>
+                                <td> <input type="text" th:field="*{weightKg}"></td>
+
+                                <th>Color</th>
+                                <td><input type="text" th:field="*{color}"></td>
+
+                                <th>Quantity</th>
+                                <td><input type="text" th:field="*{quantity}"></td>
+                                <th></th>
+                                <td>
+                                    <!- -           <button type="submit" name="deleteButton" value="delete">X</button>- ->
+                                </td>
+                            </form>
+                        </tr>
+                    </th:block>
+                    </tbody>
+                    -->
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!--<h3>Search product</h3>-->
+    <!--<br>-->
+    <!--<form name="search" method="GET" formaction="shoes.html">-->
+    <!--    <p><strong>ID:</strong></p>-->
+    <!--    <input type="number" name="id">ID<br>-->
+
+    <!--    <p><strong>Name:</strong></p>-->
+    <!--    <input type="text" name="searchName">Name<br>-->
+    <!--&lt;!&ndash;    <button name="searchButton" value="search">Search</button>&ndash;&gt;-->
+    <!--    <br>-->
+    <!--    <p><strong>Results:</strong></p>-->
+    <!--</form>-->
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="shoesRest.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+.container{
+    background-image: url("https://proza.ru/pics/2014/02/12/1866.jpg");
+    background-repeat: no-repeat;
+    height: 424px;
+    position:relative;
+}
+#btnMVC{
+    position: absolute;
+    right: 60%;
+    top:60%;
+}
+#btnRest{
+    position: absolute;
+    left: 17%;
+    top:62%;
+}
+

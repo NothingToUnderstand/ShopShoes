@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <title>Users</title>
+</head>
+
+<body>
+    <h1>Users</h1>
+
+    <h3>All Users</h3>
+
+    <div class="container" style="background-color:bisque">
+        <a th:href="@{/}" class="btn btn-primary btn-md">Main</a>
+        <a th:href="@{/users/find}" class="btn btn-primary btn-md">Find User</a>
+        <a th:href="@{/users/regist}" class="btn btn-primary btn-md">Create User</a>
+        <table class="table">
+            <tr>
+                <th scope="col">№:</th>
+                <th scope="col"><a
+                        th:href="@{'/users/page/' + ${currentPage}+'/size/'+${pageSize} + '?sortField=id&sortDir=' + ${reverseSortDir}}">
+                        ID:</a></th>
+                <th scope="col"><a
+                        th:href="@{'/users/page/' + ${currentPage}+'/size/'+${pageSize} + '?sortField=username&sortDir=' + ${reverseSortDir}}">
+                        Username:</a></th>
+                <th scope="col"><a
+                        th:href="@{'/users/page/' + ${currentPage}+'/size/'+${pageSize} + '?sortField=email&sortDir=' + ${reverseSortDir}}">
+                        Email:</a></th>
+                <th scope="col"><a
+                        th:href="@{'/users/page/' + ${currentPage}+'/size/'+${pageSize} + '?sortField=roles&sortDir=' + ${reverseSortDir}}">
+                        Role:</a></th>
+                <th scope="col">View</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+
+            <tr scope="row" th:each="users,iterationStatus : ${listUsers}">
+                <td th:text="${iterationStatus.count }">№</td>
+                <td th:text="${users.getId}">ID</td>
+                <td th:text="${users.getUsername}">Name</td>
+                <td th:text="${users.getEmail}">Email</td>
+                <td th:text="${users.getRoles}">Role</td>
+
+                <td><a th:href="@{/users/view/{id}(id=${users.getId()})}" class="btn btn-success btn-xs">View</a></td>
+                <td><a th:href="@{/users/edit/{id}(id=${users.getId()})}" class="btn btn-warning btn-xs">Edit</a></td>
+                <td>
+                    <form th:object="${users}" th:action="@{/users/delete/{id}(id=${users.id})}" method="POST">
+                        <input type="hidden" name="_method" value="delete">
+                        <input type="submit" value="Delete" class="btn btn-danger btn-xs">
+                    </form>
+                </td>
+            </tr>
+        </table>
+        <div class="row">
+            <div class="col-md-2.col-xs-1">
+                <p>Total Rows: <b th:text="${totalItems}"></b></p>
+            </div>
+
+            <div class="col-md-2">
+                <form th:object="${pageSize}"
+                    th:action="@{'/users/page/' + ${currentPage}+'/size/'+${pageSize}+'?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}"
+                    method="post" id="pageSize" onchange="document.getElementById('pageSize').submit();">
+                    <select size="1" name="pageSize">
+                        <option value="#">size</option>
+                        <option th:value="1">1</option>
+                        <option th:value="2">2</option>
+                        <option th:value="5">5</option>
+                        <option th:value="10">10</option>
+                    </select>
+
+                </form>
+            </div>
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+
+                    <li class="page-item">
+                        <a class="page-link" th:if="${currentPage >1}"
+                            th:href="@{'/users/page/' + ${currentPage/currentPage}+'/size/'+${pageSize}+'?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}"
+                            aria-label="First">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+
+                    <li class="page-item">
+                        <a class="page-link" th:if="${currentPage>1}"
+                            th:href="@{'/users/page/' + ${currentPage - 1}+'/size/'+${pageSize}+'?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}"
+                            aria-label="Previous">
+                            <span aria-hidden="true">&lt;</span>
+                        </a>
+                    </li>
+
+                    <li class="page-item" th:each="i: ${#numbers.sequence(1, totalPages)}">
+                        <a class="page-link"
+                            th:href="@{'/users/page/' + ${i}+'/size/'+${pageSize}+'?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}">
+                            [[${i}]]</a>
+                    </li>
+
+                    <li class="page-item">
+                        <a class="page-link" th:if="${currentPage < totalPages}"
+                            th:href="@{'/users/page/' + ${currentPage + 1}+'/size/'+${pageSize}+'?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}"
+                            aria-label="Next">
+                            <span aria-hidden="true"> &gt;</span>
+                        </a>
+                    </li>
+
+                    <li class="page-item">
+                        <a class="page-link" th:if="${currentPage < totalPages}"
+                            th:href="@{'/users/page/' + ${totalPages}+'/size/'+${pageSize}+'?sortField=' + ${sortField} + '&sortDir=' + ${sortDir}}"
+                            aria-label="Last">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+</body>
+
+</html>

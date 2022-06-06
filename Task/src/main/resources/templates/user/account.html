@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org" ></html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+
+<div class="container" >
+    <h2>Welcome <b th:text="${userAcc.username}"> </h2>
+    <ul class="list-group list-group-flush" th:each="user :${userAcc}" >
+        <li class="list-group-item" th:text="@{'ID:'+${user.id}}">ID:</li>
+        <li class="list-group-item" th:text="@{'Username:'+${user.username}}">Username:</li>
+        <li class="list-group-item" th:text="@{'Email:'+${user.email}}">Email:</li>
+        <li class="list-group-item" th:text="@{'Password:'+${user.password}}">Password:</li>
+        <li class="list-group-item" th:text="@{'Role:'+${user.roles}}">Role:</li>
+    </ul>
+    <a  th:href="@{/users/edit/{id}(id=${userAcc.getId()})}" class="btn btn-warning btn-md">Edit</a>
+    <a th:href="@{/users}" class="btn btn-primary btn-md">Users</a>
+</body>
+</html>

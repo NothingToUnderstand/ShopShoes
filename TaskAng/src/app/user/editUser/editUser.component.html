@@ -1,0 +1,24 @@
+<app-userNav></app-userNav>
+<div class="row mt-3">
+  <div class="card">
+      <div class="card-body">
+          <h5 class="card-title">Create shoes</h5>
+      <form (ngSubmit)="onSubmit()" class="row" name="create">
+          <div class="col-12">
+              <label for="name" class="form-label">Name:{{user.username}}</label>
+              <input type="text" class="form-control" [(ngModel)]="user.username" name="username">
+          </div>
+
+          <div class="col-4">
+              <label for="email" class="form-label">Email:{{user.email}}</label>
+              <input type="email" class="form-control" [(ngModel)]="user.email" name="email">
+          </div>
+
+
+          <div class="col-12">
+              <button class="btn btn-warning mt-3" type="submit"  name="editButton" >Edit</button>
+          </div>
+      </form>
+      </div>
+  </div>
+</div>

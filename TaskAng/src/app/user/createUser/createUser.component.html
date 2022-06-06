@@ -1,0 +1,29 @@
+<app-userNav></app-userNav>
+<div class="row mt-3">
+  <div class="card">
+      <div class="card-body">
+          <h5 class="card-title">Create User</h5>
+      <form (ngSubmit)="onSubmit()" class="row" name="create">
+          <div class="col-12">
+              <label for="username" class="form-label">Username:</label>
+              <input type="text" class="form-control" [(ngModel)]="user.username" name="username">
+          </div>
+
+          <div class="col-4">
+              <label for="password" class="form-label">Password:</label>
+              <input type="number" class="form-control" [(ngModel)]="user.password" name="password">
+          </div>
+
+
+          <div class="col-4">
+              <label for="email" class="form-label">Email:</label>
+              <input type="email" class="form-control" [(ngModel)]="user.email" name="email">
+          </div>
+
+          <div class="col-12">
+              <button class="btn btn-primary mt-3" type="submit"  name="saveButton" >Save</button>
+          </div>
+      </form>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    
+    <meta charset="UTF-8">
+    <title>Edit</title>
+</head>
+<body>
+<h1>Users</h1>
+
+<h3>Edit</h3>
+
+<div class="container" style="background-color: lemonchiffon;">
+<form method="POST" th:object="${users}" >
+    <div class="form-floating mb-3">
+    <label for="username">Enter Username: </label>
+    <input type="text" th:field="*{username}" id="username"/>
+    </div>
+    <div class="form-floating mb-3">
+    <label for="email">Email:</label>
+    <input type="text" th:field="*{email}" id="email"/>
+    </div>
+    
+
+    <button type="submit" class="btn btn-warning btn-md" value="Edit">Edit </button>
+</form>
+
+<form th:object="${users}" th:action="@{/users/delete/{id}(id=${users.id})}" method="POST">
+    <input type="hidden" name="_method" value="delete">
+    <button type="submit" class="btn btn-danger btn-md" value="delete">Delete</button>
+</form>
+<a th:href="@{/users}" class="btn btn-primary btn-md">Users</a>
+</div>
+</body>
+</html>

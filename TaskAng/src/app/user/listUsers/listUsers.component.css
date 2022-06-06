@@ -1,0 +1,13 @@
+.btn{
+    margin-right: 10px;
+}
+.navigation{
+    display: flex;
+    justify-content: space-between;
+}
+.totalInfo{
+    text-align: left;
+    font-size: small;
+    display: inline-block;
+
+}

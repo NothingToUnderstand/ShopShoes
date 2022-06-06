@@ -1,0 +1,8 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Built-By: lysak
+Build-Jdk: version 15.0.1
+Implementation-Version: 1.0-SNAPSHOT
+Implementation-Vendor-Id: ark
+Main-Class: ${start-class}
+

@@ -1,0 +1,114 @@
+<app-shoesNav></app-shoesNav>
+<div class="row mt-3">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">Search shoes</h5>
+      <form id="searchShoesForm" class="row" name="search" (ngSubmit)="search()">
+        <div class="col-12">
+          <label for="name" class="form-label">Name:</label>
+          <input type="text" class="form-control" id="nameSearch" [(ngModel)]="name" name="name">
+        </div>
+        <div class="col-12">
+          <button class="btn btn-primary mt-3" type="submit" name="searchButton">Search</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<div class="row mt-3 mb-5">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">All Shoes</h5>
+      <table id="shoes" class="table table-striped">
+        <thead>
+          <tr>
+            <th><button class="btn btn-outline-primary btn-sm" (click)="fieldName('id')" ngClass="status?'asc':'desc'"
+                ngDefaultControl>ID</button></th>
+            <th><button class="btn btn-outline-primary btn-sm" (click)="fieldName('name')" ngClass="status?'asc':'desc'"
+                ngDefaultControl>Name</button></th>
+            <th><button class="btn btn-outline-primary btn-sm" (click)="fieldName('weightKg')"
+                ngClass="status?'asc':'desc'" ngDefaultControl>WeightKg</button></th>
+            <th><button class="btn btn-outline-primary btn-sm" (click)="fieldName('color')"
+                ngClass="status?'asc':'desc'" ngDefaultControl>Color</button></th>
+            <th><button class="btn btn-outline-primary btn-sm" (click)="fieldName('quantity')"
+                ngClass="status?'asc':'desc'" ngDefaultControl>Quantity</button></th>
+            <th></th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let sh of shoes">
+            <td>{{sh.id}}</td>
+            <td>{{sh.name}}</td>
+            <td>{{sh.weightKg}}</td>
+            <td>{{sh.color}}</td>
+            <td>{{sh.quantity}}</td>
+            <td><button (click)="infoShoes(sh.id)" class="btn btn-info btn-md">Info</button>
+              <button (click)="deleteShoes(sh.id)" class="btn btn-danger btn-md">Delete</button>
+              <button (click)="editShoes(sh.id)" class="btn btn-warning btn-md">Edit</button>
+            </td>
+          </tr>
+        </tbody>
+
+      </table>
+    </div>
+  </div>
+</div>
+<!-- <div class="row-md-5">
+        <form >
+            <select size="5" [(ngModel)]="pageNo" name="pageSize"  (ngModelChange)="sort()">
+                <option name="first" [value]="1">&laquo;</option>
+                <option *ngFor="let item of numberOfPages" [value]="item">{{item}}</option>
+                <option name="last" [ngModel]="totalPages"[value]="totalPages" ngDefaultControl>&raquo;</option>
+            </select>
+
+        </form>
+
+    </div> -->
+
+<nav aria-label="Page navigation">
+
+  <div class="navigation">
+
+    <div class="totalInfo">
+      <p>Total Pages: <b name="totalPages" [ngModel]="totalPages" ngDefaultControl>{{totalPages}}</b></p>
+      <p>Total Shoes: <b name="totalItems" [ngModel]="totalItems" ngDefaultControl>{{totalItems}}</b></p>
+    </div>
+
+
+
+    <ul class="pagination justify-content-center">
+      <li class="page-item">
+        <button class="btn btn-outline-primary btn-sm" aria-label="First" (click)="pageNum(item=1)">
+          <span aria-hidden="true">&laquo;</span>
+          <span class="sr-only">First</span>
+        </button>
+      </li>
+
+      <li class="page-item "><button class="btn btn-outline-primary btn-sm" (click)="pageNum(item)"
+          *ngFor="let item of numberOfPages">{{item}}</button></li>
+
+
+      <li class="page-item">
+        <button class="btn btn-outline-primary btn-sm" aria-label="Last" name="last" [ngModel]="totalPages"
+          (click)="pageNum(item=totalPages)" ngDefaultControl>
+          <span class="sr-only"> Last</span>
+          <span aria-hidden="true">&raquo;</span>
+        </button>
+      </li>
+    </ul>
+
+    <select class="btn-outline-primary btn-xs" style="height: 25px;" size="1" [(ngModel)]="pageSize" name="pageSize"
+      (ngModelChange)="sort()">
+      <option [value]="1">1</option>
+      <option [value]="2">2</option>
+      <option selected [value]="5">5</option>
+      <option [value]="10">10</option>
+    </select>
+
+
+  </div>
+
+</nav>

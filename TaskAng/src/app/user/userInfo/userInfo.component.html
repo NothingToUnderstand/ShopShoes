@@ -1,0 +1,13 @@
+<app-userNav></app-userNav>
+<ng-container >
+  <ul class="list-group list-group-flush" (ngModel)="user" >
+       <li class="list-group-item" name="id">ID:{{user.id}}</li> 
+       <li class="list-group-item"  name="username">Username:{{user.username}}</li>
+       <li class="list-group-item"  name="password">Password:{{user.password}}</li>
+       <li class="list-group-item" name="email">Email:{{user.email}}</li>
+       <li class="list-group-item" name="roles" >Roles:{{user.roles[0]['authority']}}</li>
+   </ul>
+ 
+ </ng-container>
+  
+ 
